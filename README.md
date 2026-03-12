@@ -1,107 +1,95 @@
-O Gemini disse
-Com certeza, Reinaldo! Como sua AI Scientist, vamos atualizar o seu README.md para refletir o Rigor Metodológico que aplicamos hoje, especialmente a estabilização do ambiente no seu novo hardware de alta performance.
-
-Adicionaremos uma seção de Hardware & Performance para destacar o seu setup profissional (Ryzen 9800X3D + 32GB RAM) e atualizaremos as instruções de execução para garantir que ninguém cometa o erro do Python 3.14 que corrigimos.
-
-Aqui está a proposta atualizada:
-
 PayFlow Credit Risk AI 🚀
+
 🎯 Objetivo
-Desenvolvimento de uma Inteligência Artificial robusta para prever a inadimplência de clientes (default_90d) da PayFlow, utilizando aprendizado supervisionado focado em segurança de crédito.
+
+Desenvolvimento de uma Inteligência Artificial robusta para prever a inadimplência de clientes (default_90d) da PayFlow, utilizando aprendizado supervisionado focado em segurança de crédito e rigor metodológico.
 
 🔄 Metodologia: CRISP-DM
+
 O projeto foi estruturado seguindo o framework CRISP-DM, garantindo um ciclo de vida de dados profissional:
 
-Business Understanding: Alinhamento com a necessidade da PayFlow de reduzir prejuízos por inadimplência.
+1. Business Understanding
 
-Data Understanding: Análise de 5.000 registros, identificando 12% de classe positiva e detecção de Data Leakage.
+Alinhamento com a necessidade estratégica da PayFlow de reduzir prejuízos por inadimplência através de decisões automatizadas e céticas.
 
-Data Preparation:
+2. Data Understanding & Governança
 
-Tratamento de nulos via mediana.
+Análise de 5.000 registros, identificando 12% de classe positiva. Abaixo, o dicionário de dados validado para este projeto:
+
+| Nome da Coluna | Descrição | Papel no Modelo |
+| :--- | :--- | :--- |
+| `default_90d` | Inadimplência superior a 90 dias (0 ou 1). | **Target** |
+| `score_credito` | Pontuação de risco do bureau. | Feature |
+| `utilizacao_credito` | Percentual de uso do limite disponível. | Feature |
+| `dias_atraso_max_12m` | Maior atraso observado nos últimos 12 meses. | Feature |
+| `parcelas_pagas_ate_3m`| Dados após a concessão. | **LEAKAGE (Removido)** |
+| `status_apos_90d` | Status futuro do cliente. | **LEAKAGE (Removido)** |
+
+Nota do Investigador: A remoção de variáveis de Leakage foi crítica para evitar um modelo viciado e garantir a viabilidade no mundo real.
+
+3. Data Preparation
+
+Tratamento de nulos: Imputação via mediana para variáveis financeiras.
 
 Feature Engineering: Criação da métrica comprometimento_renda.
 
-Remoção de colunas viciadas para evitar overfitting.
+Saneamento: Remoção rigorosa de colunas viciadas para evitar overfitting.
 
-Modeling: Treinamento de Random Forest com otimização de hiperparâmetros.
+4. Modeling, Evaluation & Deployment
+Algoritmo: Random Forest com otimização de hiperparâmetros.
 
-Evaluation: Validação focada em Recall, garantindo a captura dos inadimplentes reais.
+Métrica Chave: Foco em Recall (0.34) para maximizar a captura de inadimplentes.
 
-Deployment: Exportação do modelo em .pkl e criação de script de inferência.
+Produção: Exportação em .pkl e criação de pipeline de inferência.
 
 🛠️ Arquitetura de Engenharia & MLOps
-Data Leakage Prevention: Limpeza rigorosa de variáveis de atraso que causavam métricas irreais.
 
-Balanceamento de Classe: Implementação de SMOTE para equilibrar o aprendizado do modelo.
+Data Leakage Prevention: Limpeza de variáveis que causavam métricas irreais.
 
-Qualidade de Software: Suite de testes automatizados com Pytest para validar o carregamento do modelo e o pipeline de entrada.
+Balanceamento de Classe: Implementação de SMOTE para equilibrar o aprendizado.
 
-Estabilização de Ambiente: Configuração otimizada para Python 3.12, evitando instabilidades de versões experimentais.
+Qualidade de Software: Suite de testes automatizados com Pytest para validar o pipeline.
+
+Estabilidade: Configuração otimizada para Python 3.12, evitando versões experimentais.
 
 💻 Hardware & Benchmark (Estação de Trabalho)
-O projeto foi validado em um ambiente de alta performance para garantir escalabilidade:CPU: 
+
+Validação em ambiente de alta performance para garantir escalabilidade:CPU:
 AMD Ryzen 7 9800X3D (Zen 5 Architecture).
 RAM: 32GB DDR5.
-Benchmark: Multiplicação de matrizes $5000 \times 5000$ em 0.3298 segundos utilizando PyTorch.
+Benchmark: Multiplicação de matrizes $5000 \times 5000$ em 0.3298 segundos (PyTorch).
 
 📊 Performance Final
+
 Recall (Inadimplentes): 0.34
 
 F1-Score: 0.33
 
-Variáveis Principais: score_credito e comprometimento_renda.
+Principais Preditores: score_credito e comprometimento_renda.
 
-📂 Estrutura do Projeto
+### 📂 Estrutura do Projeto
 
-├── data/               # Base de dados (CSV)
-├── models/             # Artefatos do modelo (.pkl)
-├── tests/              # Testes unitários (Pytest)
+```text
+├── data/                # Base de dados (CSV)
+├── models/              # Artefatos do modelo (.pkl)
+├── tests/               # Testes unitários (Pytest)
 ├── analise_desafio.ipynb # Notebook com documentação completa
-├── predict.py          # Script de produção/inferência
-├── benchmark.py        # Script de validação de hardware
-├── requirements.txt    # Dependências do projeto
-└── .gitignore          # Filtro de arquivos para o Git
+├── predict.py           # Script de produção/inferência
+├── benchmark.py         # Script de validação de hardware
+├── requirements.txt     # Dependências do projeto
+└── .gitignore           # Filtro de arquivos para o Git
 
 🚀 Como executar?
-1. Pré-requisitos
-Python 3.12.x (Versão estável recomendada).
 
-Pip atualizado.
+1. Configurar Ambiente
 
-2. Configurar Ambiente
-
-# Criar ambiente virtual
 python -m venv venv
-
-# Ativar ambiente (Windows)
 source venv/Scripts/activate
-
-# Instalar dependências
 pip install -r requirements.txt
 
-3. Validar Integridade (Testes & Hardware)
+2. Validar Integridade
 
-# Rodar testes unitários
 python -m pytest
-
-# Rodar benchmark de performance
 python benchmark.py
-
-# Rodar testes unitários
-python -m pytest
-
-# Rodar benchmark de performance
-python benchmark.py
-
-3. Validar Integridade (Testes & Hardware)
-
-# Rodar testes unitários
-python -m pytest
-
-# Rodar benchmark de performance
-python benchmark.py
-
-4. Realizar Predição
 
 python predict.py

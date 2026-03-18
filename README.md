@@ -7,7 +7,7 @@ Desenvolvimento de uma Inteligência Artificial robusta para prever a inadimplê
 ## 🔄 Metodologia: CRISP-DM
 O projeto foi estruturado seguindo o framework **CRISP-DM** para garantir um ciclo de vida de dados escalável e auditável:
 
-* **Business Understanding:** Alinhamento estratégico para reduzir o churn e prejuízos operacionais por inadimplência.
+* **Business Understanding:** Alinhamento estratégico para reduzir o Default e prejuízos operacionais por inadimplência.
 * **Data Understanding:** Análise de 5.000 registros com 12% de classe positiva e identificação proativa de *Data Leakage*.
 * **Data Preparation:** Imputação de nulos via mediana, *Feature Engineering* (`comprometimento_renda`) e remoção de variáveis viciadas.
 * **Modeling:** Implementação de **Random Forest Classifier** com otimização de hiperparâmetros.

@@ -1,117 +1,61 @@
-# PayFlow Credit Risk AI 🚀
+# Tech Challenge - Fase 1: NPS Preditivo 🚀
 
-Desenvolvimento de uma Inteligência Artificial robusta para prever a inadimplência de clientes (`default_90d`) da **PayFlow**, utilizando aprendizado supervisionado focado em segurança de crédito e mitigação de riscos financeiros através de rigor estatístico.
-
----
-
-## 🔄 Metodologia: CRISP-DM
-O projeto foi estruturado seguindo o framework **CRISP-DM** para garantir um ciclo de vida de dados escalável e auditável:
-
-* **Business Understanding:** Alinhamento estratégico para reduzir o Default e prejuízos operacionais por inadimplência.
-* **Data Understanding:** Análise de 5.000 registros com 12% de classe positiva e identificação proativa de *Data Leakage*.
-* **Data Preparation:** Imputação de nulos via mediana, *Feature Engineering* (`comprometimento_renda`) e remoção de variáveis viciadas.
-* **Modeling:** Implementação de **Random Forest Classifier** com otimização de hiperparâmetros.
-* **Evaluation:** Validação focada na métrica **Recall (0.34)** para priorizar a captura de clientes em risco real de default.
+## 🎯 Objetivo do Projeto
+Este projeto desenvolve uma solução de **Machine Learning** para antecipar a satisfação do cliente no e-commerce, identificando potenciais **Detratores** através de dados operacionais antes da pesquisa oficial de NPS.
 
 ---
 
-## 📊 Dicionário de Dados & Governança
+## 🎓 Conformidade Acadêmica (Fase 1 - FIAP)
+Este projeto consolida 100% dos pilares ensinados na Fase 1, demonstrando a aplicação prática da ementa:
 
-| Nome da Coluna | Descrição | Papel no Modelo |
-| :--- | :--- | :--- |
-| `default_90d` | Inadimplência superior a 90 dias (0 ou 1). | **Target** |
-| `score_credito` | Pontuação de risco do bureau de crédito. | Feature |
-| `utilizacao_credito` | Percentual de uso do limite disponível. | Feature |
-| `dias_atraso_max_12m` | Maior atraso observado nos últimos 12 meses. | Feature |
-| `parcelas_pagas_ate_3m` | Dados gerados após a concessão do crédito. | **LEAKAGE (Removido)** |
-| `status_apos_90d` | Status futuro do cliente (vazamento). | **LEAKAGE (Removido)** |
+### 1. Metodologia CRISP-DM (Aulas 01 a 04)
+O projeto seguiu o framework completo, desde o **Business Understanding** (identificação da dor de churn) até o **Deployment** (serialização do modelo para produção).
 
----
+### 2. Análise Exploratória & Storytelling (Aulas 01 a 04)
+Utilizamos **Seaborn** e **Matplotlib** para validar hipóteses operacionais. A narrativa de dados prova, através de **Boxplots**, que o atraso na entrega é o principal driver de detração, conectando a análise técnica ao valor de negócio.
 
-## 💻 Hardware & Benchmark (Estação de Trabalho)
-Validação de performance em hardware de última geração para garantir a escalabilidade do treinamento:
+### 3. Estatística para Cientistas de Dados (Aulas 01 a 05)
+- **Correlação de Pearson:** Identificamos a força da relação entre logística e NPS.
+- **Avaliação de Performance:** Implementamos métricas de classificação (**AUC-ROC de 0.92** e **Recall de 100%**) para garantir a captura de detratores críticos.
+- **Stress Testing:** Validação de hipóteses operacionais em cenários de borda (atrasos > 15 dias).
 
-* **CPU:** AMD Ryzen 7 9800X3D (Zen 5 Architecture).
-* **RAM:** 32GB DDR5.
-* **Benchmark:** Multiplicação de matrizes $5000 \times 5000$ em **0.3298 segundos** (PyTorch/LibTorch).
+### 4. Modelagem e Engenharia (Aulas de IA Supervisionada)
+Implementamos o **Random Forest Classifier** por sua robustez a outliers e capacidade de gerar **Feature Importance**, garantindo transparência (Explainable AI) sobre os fatores de insatisfação.
 
 ---
 
-## 📂 Estrutura do Projeto
-
-```text
-├── data/                 # Base de dados (CSV)
-├── models/               # Artefatos do modelo treinado (.pkl)
-├── tests/                # Testes unitários de integridade (Pytest)
-├── analise_desafio.ipynb  # Notebook com EDA e documentação completa
-├── predict.py            # Script de produção/inferência
-├── benchmark.py          # Script de validação de performance de hardware
-├── requirements.txt      # Dependências e versões do projeto
-└── .gitignore            # Filtro de arquivos para o Git
-
-```
+## 🛠️ Estrutura do Projeto
+- `data/`: Bases de dados originais.
+- `models/`: Artefatos do modelo treinado (`.pkl`) e lista de features.
+- `src/`: Scripts de produção (`predict_nps.py`, `predict_payflow.py`).
+- `Fase 1/`: Notebooks com a análise exploratória e científica completa.
+- `requirements.txt`: Dependências do projeto.
 
 ---
 
-## 📊 4. Dicionário de Dados & Governança
-
-| Nome da Coluna | Descrição | Papel no Modelo |
-| :--- | :--- | :--- |
-| `default_90d` | Inadimplência superior a 90 dias (Target). | **Alvo** |
-| `comprometimento_renda` | Razão entre valor solicitado e renda mensal. | **Feature (Nova)** |
-| `score_credito` | Pontuação de risco do bureau de crédito. | **Feature** |
-| `dias_atraso_max_12m` | Maior atraso observado nos últimos 12 meses. | **Feature Crítica** |
-| `status_apos_90d` | Status futuro do cliente (vazamento). | **Removido (Leakage)** |
-
----
-
----
-
-## 🚀 5. Como Executar o Projeto
-
-### 5.1 Configuração do Ambiente
-
+## 🚀 Como Executar
 ```bash
-# Executar suíte de testes unitários
-python -m pytest
+# Instalação das dependências
+pip install -r requirements.txt
 
-# Validar performance computacional
-python benchmark.py
-
-```
-
-
-### 5.2 Validar Integridade (Testes & Hardware)
-```bash
-# Executar suíte de testes unitários
-python -m pytest
-
-# Validar performance computacional
-python benchmark.py
-
-### 5.3 Realizar Predição (Inferência)
-# Executar o pipeline de predição em produção
-python predict.py
+# Inferência em Produção (Tech Challenge)
+python src/predict_nps.py
 ```
 
 ---
 
----
+💻 Hardware & Benchmark (Estação de Trabalho)
+- CPU: AMD Ryzen 7 9800X3D (Zen 5)
 
-## 💻 6. Hardware & Performance (Estação de Trabalho)
+- RAM: 32GB DDR5
 
-- Validação de performance em hardware de última geração para garantir a escalabilidade do treinamento:
+- GPU: GeForce RTX 5070 Ti
 
-- CPU: AMD Ryzen 7 9800X3D (Zen 5 Architecture).
-
-- RAM: 32GB DDR5.
-
-Benchmark: Processamento de matrizes de alta densidade em 0.33s.
+- Benchmark: Processamento de matrizes de alta densidade em 0.33s.
 
 ---
 
+⚖️ Governança e QA
+- Data Leakage: Removidas variáveis com dados futuros para evitar vício do modelo.
 
-## 🕵️‍♂️ Investigação Final
-
-> "A IA não vai substituir o humano. A IA vai substituir o humano que não sabe usar IA."
-> — **Prof. Alexandre Santos (FIAP)**
+- Stress Test: Scripts de validação garantem que o modelo responda corretamente a atrasos críticos > 15 dias.

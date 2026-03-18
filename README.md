@@ -53,22 +53,23 @@ Validação de performance em hardware de última geração para garantir a esca
 
 ---
 
-## 🚀 Como executar?
+## 📊 4. Dicionário de Dados & Governança
 
-### 1. Configurar Ambiente
+| Nome da Coluna | Descrição | Papel no Modelo |
+| :--- | :--- | :--- |
+| `default_90d` | Inadimplência superior a 90 dias (Target). | **Alvo** |
+| `comprometimento_renda` | Razão entre valor solicitado e renda mensal. | **Feature (Nova)** |
+| `score_credito` | Pontuação de risco do bureau de crédito. | **Feature** |
+| `dias_atraso_max_12m` | Maior atraso observado nos últimos 12 meses. | **Feature Crítica** |
+| `status_apos_90d` | Status futuro do cliente (vazamento). | **Removido (Leakage)** |
 
-```bash
-# Criar e ativar ambiente virtual
-python -m venv venv
-source venv/bin/activate  # No Linux/Mac
-# No Windows: venv\Scripts\activate
+---
 
-# Instalar dependências estáveis
-pip install -r requirements.txt
+---
 
-```
+## 🚀 5. Como Executar o Projeto
 
-### 2. Validar Integridade (Testes & Hardware)
+### 5.1 Configuração do Ambiente
 
 ```bash
 # Executar suíte de testes unitários
@@ -79,15 +80,36 @@ python benchmark.py
 
 ```
 
-### 3. Realizar Predição (Inferência)
 
+### 5.2 Validar Integridade (Testes & Hardware)
 ```bash
+# Executar suíte de testes unitários
+python -m pytest
+
+# Validar performance computacional
+python benchmark.py
+
+### 5.3 Realizar Predição (Inferência)
 # Executar o pipeline de predição em produção
 python predict.py
-
 ```
 
 ---
+
+---
+
+## 💻 6. Hardware & Performance (Estação de Trabalho)
+
+- Validação de performance em hardware de última geração para garantir a escalabilidade do treinamento:
+
+- CPU: AMD Ryzen 7 9800X3D (Zen 5 Architecture).
+
+- RAM: 32GB DDR5.
+
+Benchmark: Processamento de matrizes de alta densidade em 0.33s.
+
+---
+
 
 ## 🕵️‍♂️ Investigação Final
 

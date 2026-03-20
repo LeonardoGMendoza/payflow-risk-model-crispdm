@@ -1,49 +1,55 @@
+# 📊 PayFlow AI: Monitor de Risco de Cliente (NPS & Atraso)
 
-# 📊 PayFlow AI - Monitor de Risco de Cliente & NPS Preditivo
+> **Grupo:** Reinaldo Fernandes, Leonardo, Winny
+> **Status:** Tech Challenge Fase 1 (FIAP - AI Scientist) - Finalizado 🚀
 
-> **Status do Projeto:** Fase 1 - Finalizado 🚀
-> **Papéis:** AI Scientist, ML Engineer & Quality Assurance (QA).
->
+## 🎯 1. Visão de Negócio e Objetivo
 
-## 💡 Inovações da Versão 4.0
-
-* **Monitoramento Geográfico:** Proativo com auditoria de riscos.
-* **Core de IA:** XGBoost Regressor + Motor de Decisão Geográfica.
-* **Interface:** Dashboard dinâmico com integração de Mapas (Folium).
-* **Tecnologias Adicionais:** * `Open-meteo API`: Dados climáticos sem custo de chave.
-  * `Geopy`: Conversão de cidades para coordenadas Lat/Log.
-  * `Streamlit Session State`: Persistência de auditoria de dados.
+O **PayFlow AI** é uma solução de inteligência preditiva que antecipa o comportamento do cliente no e-commerce. O objetivo técnico é classificar potenciais **Detratores** (NPS 0-6) utilizando variáveis operacionais e logísticas, permitindo ações preventivas de Customer Success.
 
 ---
 
-## 📊 Performance e Inteligência Proativa
+## 🔬 2. Metodologia Científica e Ciclo Analítico (Aulas 01 a 04)
 
-O sistema opera em dois pilares fundamentais:
+Seguimos o framework **CRISP-DM**, integrando os conceitos fundamentais de Ciência de Dados:
 
-| Pilar               | Funcionalidade          | Objetivo de Negócio                         |
-| :------------------ | :---------------------- | :------------------------------------------- |
-| **Preditivo** | XGBoost (MAE 5.07 dias) | Precisão no prazo prometido.                |
-| **Auditivo**  | Monitoramento Real-time | Detectar atrasos antes que o rastreio falhe. |
+### A. Análise Exploratória de Dados (EDA) & Storytelling
 
-**Impacto:** Redução de Churn e do volume de chamados no SAC através de comunicações preventivas.
+* **Distribuição e Outliers:** Utilizamos **Histogramas** para analisar a frequência de atrasos e **Boxplots** para identificar valores discrepantes que distorcem a média de entrega.
+* **Correlação de Pearson:** Geramos um **Heatmap (Matriz de Correlação)** para identificar quais variáveis (ex: Dias de Atraso, Número de Reclamações) possuem relação linear forte com a nota de NPS.
+* **Insight Chave:** Validamos que o atraso na entrega é o principal *driver* de detração, com comportamento de queda de satisfação não-linear após o 5º dia.
 
----
+### B. Estatística para Cientistas de Dados (Aula 05)
 
-## 🛡️ Garantia de Qualidade (QA) & Governança
-
-Como especialistas em QA, implementamos uma camada de **Testes de Estresse Geográfico**:
-
-* **Validação de Coordenadas:** Filtro automático para evitar erros de renderização (NaN Handling).
-* **Simulação de Crise:** Botão de teste para cenários de tempestade e validação de protocolos.
-* **Métricas de IA:** Tempo de auditoria inferior a 0.50s para múltiplos pedidos.
+* **Probabilidade:** O modelo estima a probabilidade de um evento (Detração), permitindo definir *thresholds* de decisão.
+* **Amostragem:** Garantimos a integridade dos dados originais, tratando valores nulos e inconsistentes para evitar o **Bias (Vício)** do modelo.
 
 ---
 
-## 🚀 Como Executar
+## 🤖 3. Modelagem e Engenharia de IA
 
-1. **Ative o ambiente:** `source venv/Scripts/activate`
-2. **Instale as dependências:** `pip install -r requirements.txt`
-3. **Execute o Monitor:**
+* **Algoritmo:** `Random Forest Classifier`. Escolhido por lidar bem com grandes volumes de dados (20 colunas) e fornecer a **Feature Importance** (Explainable AI).
+* **Métricas de Performance (Avaliação Técnica):**
+  * **Recall (Sensibilidade):** Otimizado para **100%**. Em churn/detração, é vital não deixar nenhum detrator passar despercebido.
+  * **AUC-ROC (0.92):** Demonstra a robustez do modelo em distinguir entre Promotores e Detratores em diferentes limiares.
+  * **Matriz de Confusão:** Implementada para validar o equilíbrio entre Falsos Positivos e Falsos Negativos.
+
+---
+
+## 🛡️ 4. Governança, QA e Deploy (Aulas de MLOps)
+
+Como especialistas em **Quality Assurance**, aplicamos rigor técnico no produto final:
+
+* **Feature Alignment:** Garantia de que a entrada de dados no Streamlit respeita a tipagem e ordem das 20 features do treino.
+* **Robustez:** Tratamento de erros para inputs inválidos no Dashboard.
+* **Modularização:** Organização em pasta `src/` para escalabilidade e manutenção do código.
+
+---
+
+## 🚀 5. Como Executar
+
+1. **Instalação:** `pip install -r requirements.txt`
+2. **Execução:**
 
 ```bash
 streamlit run src/app.py

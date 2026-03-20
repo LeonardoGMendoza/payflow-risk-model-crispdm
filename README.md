@@ -1,11 +1,9 @@
----
 
 # 📊 PayFlow AI - Monitor de Risco de Cliente & NPS Preditivo
 
 > **Status do Projeto:** Fase 1 - Finalizado 🚀
 > **Papéis:** AI Scientist, ML Engineer & Quality Assurance (QA).
-
-Este projeto desenvolve uma solução de **Machine Learning** para antecipar a satisfação do cliente no e-commerce, identificando potenciais **Detratores** através de dados operacionais antes mesmo da pesquisa oficial de NPS.
+>
 
 ## 💡 Inovações da Versão 4.0
 

@@ -1,11 +1,11 @@
-# 🚚 AI Logistics Optimizer - Previsão & Monitoramento v4.0
+---
 
-> **Status do Projeto:** Proativo | Em produção 🚀
+# 📊 PayFlow AI - Monitor de Risco de Cliente & NPS Preditivo
+
+> **Status do Projeto:** Fase 1 - Finalizado 🚀
 > **Papéis:** AI Scientist, ML Engineer & Quality Assurance (QA).
 
-Este projeto evoluiu de um modelo preditivo estatístico para uma **plataforma completa de Inteligência Logística**. Além de prever o tempo de entrega com **XGBoost**, o sistema monitora condições climáticas em tempo real e automatiza o contato ativo com o cliente.
-
----
+Este projeto desenvolve uma solução de **Machine Learning** para antecipar a satisfação do cliente no e-commerce, identificando potenciais **Detratores** através de dados operacionais antes mesmo da pesquisa oficial de NPS.
 
 ## 💡 Inovações da Versão 4.0
 

@@ -48,5 +48,5 @@ Como especialistas em QA, implementamos uma camada de **Testes de Estresse Geogr
 3. **Execute o Monitor:**
 
 ```bash
-streamlit run src/ia_logistica_v3.py
+streamlit run src/app.py
 ```

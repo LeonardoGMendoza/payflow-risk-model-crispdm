@@ -1,9 +1,20 @@
-pandas
-numpy
-scikit-learn
+# Manipulação e Matemática
+pandas==2.2.2
+numpy>=1.26.0
+scipy
+
+# Visualização de Dados (Visual Storytelling)
 matplotlib
 seaborn
+plotly
+xlrd>=2.0.1  # Motor necessário para ler o arquivo IDH_2010.xls
+
+# Machine Learning e Algoritmos
+scikit-learn
+xgboost
 imbalanced-learn
+
+# Engenharia e Ambientes de Trabalho
 joblib
 ipykernel
 pytest

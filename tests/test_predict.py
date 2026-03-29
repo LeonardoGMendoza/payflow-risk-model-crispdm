@@ -1,23 +1,15 @@
 import pytest
 import os
-import joblib
-import pandas as pd
-# Mudamos de 'from src.predict' para 'from predict' 
-# porque o arquivo está na raiz, não dentro de src!
-from predict import carregar_modelo, processar_entrada
+import sys
 
-# Teste 1: Verificar se o arquivo do modelo existe e carrega
+# Garante que o Python encontre a pasta 'src' estando na raiz
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Ajustado para importar a função correta do seu src/predict.py
+from src.predict import run_prediction
+
 def test_modelo_carregado():
-    MODEL_PATH = 'models/modelo_risco_payflow.pkl'
-    assert os.path.exists(MODEL_PATH), "O arquivo .pkl não foi encontrado!"
-    modelo = carregar_modelo()
-    assert modelo is not None, "Falha ao carregar o modelo joblib"
-
-# Teste 2: Verificar se o processamento gera o número correto de colunas
-def test_processamento_colunas():
-    modelo = carregar_modelo()
-    colunas_esperadas = modelo.feature_names_in_ # Espera-se 25 colunas
-    
+    """ Verifica se a predição básica funciona (indica que o modelo carregou) """
     cliente_fake = {
         'idade': 30,
         'renda_mensal': 5000,
@@ -25,6 +17,19 @@ def test_processamento_colunas():
         'score_credito': 600,
         'tempo_emprego_anos': 3
     }
+    resultado = run_prediction(cliente_fake)
     
-    df_result = processar_entrada(cliente_fake, colunas_esperadas)
-    assert df_result.shape[1] == len(colunas_esperadas), f"O processamento deveria retornar {len(colunas_esperadas)} colunas"
+    assert isinstance(resultado, dict), "Deveria retornar um dicionário"
+    assert "decisao_politica" in resultado, "Deveria ter a chave de decisão"
+    assert "erro" not in resultado, f"Erro inesperado: {resultado.get('erro')}"
+
+def test_calculo_comprometimento():
+    """ Verifica se o motor de decisão está calculando o comprometimento """
+    cliente_fake = {
+        'renda_mensal': 2000,
+        'valor_solicitado': 1000
+    }
+    resultado = run_prediction(cliente_fake)
+    
+    assert "info_adicional" in resultado
+    assert "comprometimento_calculado" in resultado["info_adicional"]

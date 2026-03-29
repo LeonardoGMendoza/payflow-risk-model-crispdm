@@ -27,7 +27,7 @@ st.markdown("""
 
 st.title("🌍 Inteligência Territorial: Análise de Oportunidades IDHM")
 st.markdown("""
-Esta aplicação identifica **Territórios Premium** para expansão de crédito, 
+Esta aplicação identifica **Territórios Premium** para entrega de bons produtos, 
 utilizando o motor de processamento e auditoria validado via MLOps.
 """)
 

@@ -1,5 +1,6 @@
-# 🚀 PÓS TECH AI Scientist: Portfólio de Engenharia e Ciência de Dados
-
+# 🚀 PÓS TECH AI Scientist: Portfólio Post Tech 
+AI Scientist
+Pós Tech
 **Integrantes do Grupo:**
 
 | Nome | RM | Contribuições |

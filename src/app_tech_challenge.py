@@ -513,15 +513,15 @@ with tab3:
 
     ### 🔬 Metodologia CRISP-DM Aplicada
 
-    | Fase | Responsável | Entregável |
-    |------|-------------|------------|
-    | 1. Entendimento do Negócio | Grupo | Definição do objetivo de NPS |
-    | 2. Entendimento dos Dados | **Leonardo** | Notebook EDA completo |
-    | 3. Preparação dos Dados | Reinaldo | Feature Engineering |
-    | 4. Modelagem | Reinaldo | Random Forest + SMOTE |
-    | 5. Avaliação | Grupo | AUC-ROC = 0.92 |
-    | 6. Deploy | Reinaldo | Dashboard Streamlit |
-    | 7. QA / Testes | Reinaldo | pytest — 3 testes unitários |
+    | Fase | Entregável |
+    |------|------------|
+    | 1. Entendimento do Negócio | Definição do objetivo de NPS |
+    | 2. Entendimento dos Dados | Notebook EDA completo |
+    | 3. Preparação dos Dados | Feature Engineering |
+    | 4. Modelagem | Random Forest + SMOTE |
+    | 5. Avaliação | AUC-ROC = 0.92 |
+    | 6. Deploy | Dashboard Streamlit |
+    | 7. QA / Testes | pytest — 3 testes unitários |
 
     ---
 
@@ -540,7 +540,7 @@ with tab3:
     ### 👥 Integrantes do Grupo
     """)
 
-    m1, m2, m3 = st.columns(3)
+    m1, m2, m3, m4 = st.columns(4)
     with m1:
         st.markdown("""
         **🛠️ Reinaldo Fernandes**
@@ -564,7 +564,14 @@ with tab3:
         - Documentação
         - Validação de resultados
         """)
+    with m4:
+        st.markdown("""
+        **👨‍💻 Caio Morais Rubino**
+        RM 371492
+        - Desenvolvimento
+        - QA Pipeline
+        """)
 
 st.markdown("---")
-st.caption("Desenvolvido por Reinaldo Fernandes (RM371717) | Leonardo Junior Gonzales Mendoza (RM373713) | Winny Tavares (RM371471)")
+st.caption("Desenvolvido por Reinaldo Fernandes (RM371717) | Leonardo Junior Gonzales Mendoza (RM373713) | Winny Tavares (RM371471) | Caio Morais Rubino (RM371492)")
 st.caption("Tech Challenge FIAP Fase 1 — AI Scientist")

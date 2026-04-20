@@ -8,6 +8,7 @@ Pós Tech
 | Reinaldo Fernandes | RM 371717 | Modelagem IA, Dashboard, Testes (pytest) |
 | Leonardo Junior Gonzales Mendoza | RM 373713 | Análise Exploratória (EDA), Aba EDA no Dashboard |
 | Winny Tavares | RM 371471 | Documentação, Validação de resultados |
+| Caio Morais Rubino | RM 371492 | Desenvolvimento, QA Pipeline |
 
 Este repositório centraliza o ecossistema de soluções desenvolvidas durante a pós-graduação na **FIAP**, integrando rigor estatístico, engenharia de machine learning e visão de negócio.
 
@@ -44,7 +45,7 @@ O projeto principal deste repositório. Uma solução *end-to-end* para prever a
 Notebook Jupyter documentando toda a jornada analítica dos dados do Tech Challenge.
 
 * **Destaque Técnico:** Storytelling visual com Plotly e validação estatística Mann-Whitney.
-* **Contribuição:** Leonardo Junior Gonzales Mendoza — RM 373713
+* **Contribuição:** Leonardo Junior Gonzales Mendoza — RM 373713 e Caio Morais Rubino — RM 371492
 * **Localização:** `notebooks/analise_exploratoria_nps.ipynb`
 
 ### 3. 🌍 Motor de Diagnóstico Socioeconômico (IDHM)

@@ -256,7 +256,7 @@ with tab1:
 with tab2:
     st.header("🔬 Análise Exploratória de Dados (EDA)")
     st.markdown(
-        "**Contribuição:** Leonardo Junior Gonzales Mendoza — RM 373713  \n"
+        "**Contribuições:** Reinaldo Fernandes (RM 371717), Leonardo Jr. G. Mendoza (RM 373713), Winny Tavares (RM 371471) e Caio Morais Rubino (RM 371492)  \n"
         "Análise baseada nos dados reais do desafio, seguindo a metodologia **CRISP-DM**."
     )
 

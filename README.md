@@ -35,7 +35,7 @@ O projeto principal deste repositório. Uma solução *end-to-end* para prever a
 * **IA:** Classificador *Random Forest* com balanceamento **SMOTE** — AUC-ROC: 0.92.
 * **Interface:** Dashboard Premium em **Streamlit** com 3 abas:
   * 🚀 **Predição em Tempo Real** — Termômetro de risco por cliente
-  * 🔬 **Análise Exploratória (EDA)** — Storytelling completo com dados reais *(Leonardo)*
+  * 🔬 **Análise Exploratória (EDA)** — Storytelling completo com dados reais *(Grupo FIAP)*
   * 📋 **Sobre o Projeto** — Metodologia e equipe
 
 * **Localização:** `src/app_tech_challenge.py`
@@ -45,7 +45,7 @@ O projeto principal deste repositório. Uma solução *end-to-end* para prever a
 Notebook Jupyter documentando toda a jornada analítica dos dados do Tech Challenge.
 
 * **Destaque Técnico:** Storytelling visual com Plotly e validação estatística Mann-Whitney.
-* **Contribuição:** Leonardo Junior Gonzales Mendoza — RM 373713 e Caio Morais Rubino — RM 371492
+* **Contribuição:** Reinaldo Fernandes, Leonardo Mendoza, Winny Tavares e Caio Morais Rubino.
 * **Localização:** `notebooks/analise_exploratoria_nps.ipynb`
 
 ### 3. 🌍 Motor de Diagnóstico Socioeconômico (IDHM)
@@ -85,7 +85,7 @@ payflow-risk-model-crispdm/
 │   ├── predict_tech_challenge.py   ← Motor de predição
 │   └── app_idhm.py                 ← App IDHM
 ├── 📓 notebooks/
-│   └── analise_exploratoria_nps.ipynb  ← EDA completo (Leonardo)
+│   └── analise_exploratoria_nps.ipynb  ← EDA completo (Grupo FIAP)
 ├── 🤖 models/
 │   ├── modelo_nps_rf.pkl           ← Modelo treinado
 │   └── features_nps.pkl            ← Features do modelo
